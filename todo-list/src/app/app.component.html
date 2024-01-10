@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tarefa Lista</title>
+    <link rel="icon" href="../assets/tarefa-livros.ico">
+  </head>
+  <body>
+    
+    
+
+    <div class="container text-center">
+      <img src="../assets/img/tarefa-livros.png" idth="320" height="205">
+      <h1 style="text-align: center">Check List de Livros</h1>
+      <div class="row justify-content-md-center">
+        <div class="col col-lg-4">
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Escreva seu Livro"
+              aria-label="Enviar Livro"
+              aria-describedby="button-addon2"
+              [(ngModel)]="newTodo"
+            />
+            <button
+              class="btn btn-outline-secondary btn-primary"
+              type="button"
+              id="button-addon2"
+              style="color: white"
+              (click)="saveTodo()"
+            >
+              Adicione
+            </button>
+          </div>
+          <table class="table table-striped">
+            <tbody>
+              <tr *ngFor="let todo of todos; let i = index">
+                <th scope="row">{{ i + 1 }}</th>
+                <td>
+                  {{ todo.name }}
+                </td>
+                <td style="color: red; font-weight: bold" (click)="remove(i)">
+                  X
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
